@@ -9,5 +9,5 @@ public class AppDbContext : DbContext
     {
     }
     public DbSet<Category> Categories { get; set; }
-    public DbSet<Cards> Cards { get; set; }
+    public DbSet<Card> Cards { get; set; }
 }

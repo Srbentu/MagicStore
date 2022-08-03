@@ -6,6 +6,6 @@ public class Category
     public string CategoryName { get; set; }
     public string Description { get; set;  }
     
-    public List<Cards> Cards { get; set; }
+    public List<Card> Cards { get; set; }
 
 }

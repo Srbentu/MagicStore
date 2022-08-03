@@ -1,4 +1,6 @@
 ﻿using MagicStore.Context;
+using MagicStore.Repositories;
+using MagicStore.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace MagicStore;
@@ -16,6 +18,9 @@ public class Startup
     {
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+        services.AddTransient<ICardRepository, CardRepository>();
+        services.AddTransient<ICategoryRepository, CategoryRepository>();
         services.AddControllersWithViews();
     }
 

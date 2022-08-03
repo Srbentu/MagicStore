@@ -7,6 +7,7 @@ namespace MagicStore.Models;
 [Table("Categories")]
 public class Category
 {
+
     [Key]
     public int CategoryId { get; set; }
     [StringLength(100, ErrorMessage = "O tamanho máximo '100 caracteres")]
@@ -15,7 +16,7 @@ public class Category
     public string CategoryName { get; set; }
     [StringLength(200, ErrorMessage = "O tamanho máximo é 200 caracteres")]
     [Required(ErrorMessage = "Informe a descrição da categoria")]
-    [Display(Name = "Nome")]
+    [Display(Name = "Descrição")]
     public string Description { get; set;  }
     
     public List<Card> Cards { get; set; }

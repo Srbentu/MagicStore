@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <Content Remove="Views\Home\Privacy.cshtml" />
+      <Content Remove="Pages\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -24,6 +25,24 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Card\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Card\List.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Pages\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Pages\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Pages\**" />
     </ItemGroup>
 
 </Project>

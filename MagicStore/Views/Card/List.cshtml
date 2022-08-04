@@ -1,22 +1,25 @@
-﻿@model IEnumerable<MagicStore.Models.Card>
+﻿@model CardListViewModel
+
 
 <div class="container">
-    <div class="row">
+    <div class="row align-items-end">
         <div class="col-12">
             <div class="">
                 <h1>
-                    Cartas de Magic
+                    @Model.CategoryRoot
                 </h1>
             </div>
         </div>
-            @foreach (var card in Model)
+            @foreach (var card in Model.Cards)
             {
-                <div class="col-lg-4">
-                    <h2>
-                        @card.CardName
-                    </h2>
-                    <img src="@card.CardImageUrl" alt="@card.CardName">
-                    <h3>@card.CardPrice.ToString("c")</h3>
+                <div class="col-lg-3 my-3">
+                    <div>
+                        <h2>
+                            @card.CardName
+                        </h2>
+                        <img src="@card.CardImageUrl" alt="@card.CardName">
+                        <h3>@card.CardPrice.ToString("c")</h3>
+                    </div>
                 </div>
             }
     </div>

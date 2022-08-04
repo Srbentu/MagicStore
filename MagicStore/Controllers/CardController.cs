@@ -1,4 +1,5 @@
 ﻿using MagicStore.Repositories.Interfaces;
+using MagicStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MagicStore.Controllers;
@@ -13,7 +14,11 @@ public class CardController : Controller
 
     public IActionResult List()
     {
-        var cards = _cardRepository.Cards;
-        return View(cards);
+        //var cards = _cardRepository.Cards;
+        //return View(cards);
+        var cardListViewModel = new CardListViewModel();
+        cardListViewModel.Cards = _cardRepository.Cards;
+        cardListViewModel.CategoryRoot = "Categoria Atual";
+        return View(cardListViewModel);
     }
 }

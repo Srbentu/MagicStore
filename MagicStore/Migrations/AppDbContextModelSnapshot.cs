@@ -111,13 +111,13 @@ namespace MagicStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopCartItemId"), 1L, 1);
 
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CardId")
                         .HasColumnType("int");
 
-                    b.Property<int>("amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("shopCartId")
+                    b.Property<string>("ShopCartId")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 

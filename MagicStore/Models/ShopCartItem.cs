@@ -9,7 +9,7 @@ public class ShopCartItem
     
     public Card Card { get; set; }
     
-    public int amount { get; set; }
+    public int Amount { get; set; }
     [StringLength(200)]
-    public string shopCartId { get; set; }
+    public string ShopCartId { get; set; }
 }

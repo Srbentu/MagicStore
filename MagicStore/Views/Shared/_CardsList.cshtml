@@ -1,11 +1,11 @@
-﻿@model Card
+﻿@model Carta
 
 <div class="col-lg-3 my-3">
     <div>
         <h2>
-            @Model.CardName
+            @Model.Nome
         </h2>
-        <img src="@Model.CardImageUrl" alt="@Model.CardName">
-        <h3>@Model.CardPrice.ToString("c")</h3>
+        <img src="@Model.ImagemUrl" alt="@Model.Nome">
+        <h3>@Model.Preco.ToString("c")</h3>
     </div>
 </div>

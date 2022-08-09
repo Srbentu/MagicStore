@@ -4,14 +4,14 @@ using MagicStore.Repositories.Interfaces;
 
 namespace MagicStore.Repositories;
 
-public class CategoryRepository : ICategoryRepository
+public class CategoriaRepository : ICategoriaRepository
 {
     private readonly AppDbContext _context;
 
-    public CategoryRepository(AppDbContext context)
+    public CategoriaRepository(AppDbContext context)
     {
         _context = context;
     }
 
-    public IEnumerable<Category> Categories => _context.Categories;
+    public IEnumerable<Categoria> Categorias => _context.Categorias;
 }

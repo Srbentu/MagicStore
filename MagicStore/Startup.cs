@@ -1,4 +1,5 @@
 ﻿using MagicStore.Context;
+using MagicStore.Models;
 using MagicStore.Repositories;
 using MagicStore.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -19,10 +20,10 @@ public class Startup
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-        services.AddTransient<ICardRepository, CardRepository>();
-        services.AddTransient<ICategoryRepository, CategoryRepository>();
-
+        services.AddTransient<ICartaRepository, CartaRepository>();
+        services.AddTransient<ICategoriaRepository, CategoriaRepository>();
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor >();
+        services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
         
         services.AddControllersWithViews();
         

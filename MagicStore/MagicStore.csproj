@@ -9,6 +9,7 @@
     <ItemGroup>
       <Content Remove="Views\Home\Privacy.cshtml" />
       <Content Remove="Pages\**" />
+      <Content Remove="Views\ShopCart\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -31,18 +32,22 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Pages\Card\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Card\List.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ShopCart\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="Pages\**" />
+      <Compile Remove="Views\ShopCart\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="Pages\**" />
+      <EmbeddedResource Remove="Views\ShopCart\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Pages\**" />
+      <None Remove="Views\ShopCart\**" />
     </ItemGroup>
 
 </Project>

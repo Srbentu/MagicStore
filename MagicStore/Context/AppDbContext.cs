@@ -8,7 +8,7 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Card> Cards { get; set; }
-    public DbSet<ShopCartItem> ShopCartItens { get; set; }
+    public DbSet<Categoria> Categorias { get; set; }
+    public DbSet<Carta> Cartas { get; set; }
+    public DbSet<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
 }

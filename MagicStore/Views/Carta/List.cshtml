@@ -1,4 +1,4 @@
-﻿@model CardListViewModel
+﻿@model CartaListViewModel
 
 
 <div class="container">
@@ -6,11 +6,11 @@
         <div class="col-12">
             <div class="">
                 <h1>
-                    @Model.CategoryRoot
+                    @Model.CategoriaAtual
                 </h1>
             </div>
         </div>
-            @foreach (var card in Model.Cards)
+            @foreach (var card in Model.Cartas)
             {
                 <partial name="_CardsList" for="@card"/>
             }

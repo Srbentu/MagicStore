@@ -37,4 +37,27 @@ public class ShopCart
             ShopCartId = cartId
         };
     }
+
+    public void AddCart(Card card)
+    {
+        var cartShopItem = _context.ShopCartItens.SingleOrDefault(
+            s=> s.Card.CardId == card.CardId &&
+                s.shopCartId == ShopCartId);
+        if (cartShopItem == null)
+        {
+            cartShopItem = new ShopCartItem()
+            {
+                shopCartId = ShopCartId,
+                Card = card,
+                amount = 1
+            };
+            _context.ShopCartItens.Add(cartShopItem);
+        }
+        else
+        {
+            cartShopItem.amount++;
+        }
+
+        _context.SaveChanges();
+    }
 }

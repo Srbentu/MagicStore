@@ -60,4 +60,29 @@ public class ShopCart
 
         _context.SaveChanges();
     }
+
+    public int RemoveCart(Card card)
+    {
+        var cartShopItem = _context.ShopCartItens.SingleOrDefault(
+            s=> s.Card.CardId == card.CardId &&
+                s.shopCartId == ShopCartId);
+
+        var LocalAmount = 0;
+
+        if (cartShopItem != null)
+        {
+            if (cartShopItem.amount > 1)
+            {
+                cartShopItem.amount--;
+                LocalAmount = cartShopItem.amount;
+            }
+            else
+            {
+                _context.ShopCartItens.Remove(cartShopItem);
+            }
+        }
+
+        _context.SaveChanges();
+        return LocalAmount;
+    }
 }

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MagicStore.Models;
-[Table("Categorias")]
+[Table("CarrinhoCompraItens")]
 public class CarrinhoCompraItem
 {
     public int CarrinhoCompraItemId { get; set; }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MagicStore.Models;
 
-[Table("Categories")]
+[Table("Categorias")]
 public class Categoria
 {
 

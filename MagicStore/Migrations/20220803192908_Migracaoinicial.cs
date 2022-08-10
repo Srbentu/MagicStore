@@ -11,7 +11,7 @@ namespace MagicStore.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Categorias",
                 columns: table => new
                 {
                     CategoryId = table.Column<int>(type: "int", nullable: false)

@@ -1,26 +1,28 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MagicStore.Models;
+using MagicStore.Repositories.Interfaces;
+using MagicStore.ViewModels;
 
 namespace MagicStore.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ICartaRepository _cartaRepository;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ICartaRepository cartaRepository)
     {
-        _logger = logger;
+        _cartaRepository = cartaRepository;
     }
 
     public IActionResult Index()
     {
-        return View();
-    }
-
-    public IActionResult Demo()
-    {
-        return View();
+        var homeViewModel = new HomeViewModel
+        {
+            CartasPreferidas = _cartaRepository.CartasPreferidas
+        };
+        
+        return View(homeViewModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

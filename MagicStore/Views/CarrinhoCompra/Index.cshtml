@@ -1,6 +1,46 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<h3>Breno</h3>
+﻿@model CarrinhoCompraViewModel
+
+<div class="container">
+    <div class="row">
+        <img src="~/images/Full-Cart-icon.png" alt="">
+        <div>
+            <h4>Seu carrinho de compras:</h4>
+        </div>
+        <table class="table table-bordere table-striped">
+            <th>Quantidade</th>
+            <th>Carta</th>
+            <th class="text-tight">Preço</th>
+            <th class="text-right">Subtotal</th>
+            <th></th>
+            <tbody>
+            @foreach (var item in Model.CarrinhoCompra.CarrinhoCompraItems)
+            {
+                <tr>
+                    <td class="text-center"> @item.Quantidade</td>
+                    <td class="text-left"> @item.Carta.Nome</td>
+                    <td class="text-right"> @item.Carta.Preco.ToString("c")</td>
+                    <td class="text-right"> @((item.Quantidade * item.Carta.Preco).ToString("c"))</td>
+                    <td class="text-center">
+                        <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinhoCompra" asp-route-cartaId="@item.Carta.CartaId">
+                            <img src="~/images/remove.ico" alt="">
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+            <tfoot>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.CarrinhoCompraTotal.ToString("c")
+            </td>
+            </tfoot>
+        </table>
+        <div class="text-right">
+            <div class="btn-group">
+                <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Encerrar Pedido</a>
+                <a class="btn btn-primary" asp-controller="Carta" asp-action="List">Encerrar Pedido</a>
+
+            </div>
+        </div>
+    </div>
+</div>

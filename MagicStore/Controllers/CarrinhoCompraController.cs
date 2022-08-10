@@ -42,7 +42,7 @@ public class CarrinhoCompraController : Controller
         return RedirectToAction("Index");
     }
     
-    public RedirectToActionResult RemoveCartShop(int cartaId)
+    public RedirectToActionResult RemoverItemDoCarrinhoCompra(int cartaId)
     {
         var CartaSelecionada = _cartaRepository.Cartas.FirstOrDefault(p => p.CartaId == cartaId);
         if (CartaSelecionada != null)

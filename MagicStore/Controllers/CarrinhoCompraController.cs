@@ -31,23 +31,23 @@ public class CarrinhoCompraController : Controller
         return View(carrinhoCompraVM);
     }
 
-    public RedirectToActionResult AdicionarItemNoCarrinhoCompra(int cartaId)
+    public IActionResult AdicionarItemNoCarrinhoCompra(int cartaId)
     {
-        var CartaSelecionada = _cartaRepository.Cartas.FirstOrDefault(p => p.CartaId == cartaId);
-        if (CartaSelecionada != null)
+        var cartaSelecionada = _cartaRepository.Cartas.FirstOrDefault(p => p.CartaId == cartaId);
+        if (cartaSelecionada != null)
         {
-            _carrinhoCompra.AdicionarAoCarrinho(CartaSelecionada);
+            _carrinhoCompra.AdicionarAoCarrinho(cartaSelecionada);
         }
 
         return RedirectToAction("Index");
     }
     
-    public RedirectToActionResult RemoverItemDoCarrinhoCompra(int cartaId)
+    public IActionResult RemoverItemDoCarrinhoCompra(int cartaId)
     {
-        var CartaSelecionada = _cartaRepository.Cartas.FirstOrDefault(p => p.CartaId == cartaId);
-        if (CartaSelecionada != null)
+        var cartaSelecionada = _cartaRepository.Cartas.FirstOrDefault(p => p.CartaId == cartaId);
+        if (cartaSelecionada != null)
         {
-            _carrinhoCompra.RemoverDoCarrinho(CartaSelecionada);
+            _carrinhoCompra.RemoverDoCarrinho(cartaSelecionada);
         }
 
         return RedirectToAction("Index");

@@ -2,10 +2,17 @@
 
 <div class="col-lg-3 my-3">
     <div>
-        <h2>
-            @Model.Nome
-        </h2>
-        <img src="@Model.ImagemUrl" alt="@Model.Nome">
+        <img class="img-fluid" src="@Model.ImagemUrl" alt="@Model.Nome">
         <h3>@Model.Preco.ToString("c")</h3>
+        <a asp-controller="Carta" asp-action="Details"
+           asp-route-cartaId="@Model.CartaId">@Model.Nome</a>
+
+        <p>@Model.DescricaoCurta</p>
+        
+        <div>
+            <p class="button">
+                <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" asp-action="AdicionarItemNoCarrinhoCompra" asp-route-cartaId="@Model.CartaId">Incluir no carrinho</a>
+            </p>
+        </div>
     </div>
 </div>

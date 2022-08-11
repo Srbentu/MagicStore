@@ -40,4 +40,10 @@ public class CartaController : Controller
         };
         return View(cartaListViewModel);
     }
+
+    public IActionResult Details(int cartaId)
+    {
+        var carta = _cartaRepository.Cartas.FirstOrDefault(c => c.CartaId == cartaId);
+        return View(carta);
+    }
 }

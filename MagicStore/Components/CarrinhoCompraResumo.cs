@@ -22,6 +22,7 @@ public class CarrinhoCompraResumo : ViewComponent
         //    new CarrinhoCompraItem(),
         //    new CarrinhoCompraItem()
         //};
+
         _carrinhoCompra.CarrinhoCompraItems = itens;
 
         var carrinhoCompraVM = new CarrinhoCompraViewModel
@@ -29,7 +30,7 @@ public class CarrinhoCompraResumo : ViewComponent
             CarrinhoCompra = _carrinhoCompra,
             CarrinhoCompraTotal = _carrinhoCompra.GetCarrinhoCompraTotal()
         };
-        
+
         return View(carrinhoCompraVM);
     }
 }

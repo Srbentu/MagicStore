@@ -1,8 +1,12 @@
 ﻿@model CarrinhoCompraViewModel
 
 <div class="container">
-    <div class="row">
-        <img src="~/images/Full-Cart-icon.png" alt="">
+    <div class="row justify-content-center">
+        <div class="col-3">
+                    <img src="~/images/Full-Cart-icon.png"  height="135" alt="">
+        </div>
+    </div>
+    <div class="row checkoutForm">
         <div>
             <h4>Seu carrinho de compras:</h4>
         </div>
@@ -22,7 +26,7 @@
                     <td class="text-right"> @((item.Quantidade * item.Carta.Preco).ToString("c"))</td>
                     <td class="text-center">
                         <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinhoCompra" asp-route-cartaId="@item.Carta.CartaId">
-                            <img src="~/images/remove.ico" alt="">
+                            <img src="~/images/remove.ico" width="50" height="50" alt="">
                         </a>
                     </td>
                 </tr>
@@ -37,7 +41,7 @@
         </table>
         <div class="text-right">
             <div class="btn-group">
-                <a class="btn btn-success" asp-controller="" asp-action="">Encerrar Pedido</a>
+                <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Continuar Comprando</a>
                 <a class="btn btn-primary" asp-controller="Carta" asp-action="List">Encerrar Pedido</a>
 
             </div>

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220811034028_PedidoDetalhes")]
-    partial class PedidoDetalhes
+    [Migration("20220811041123_PopularCartas")]
+    partial class PopularCartas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

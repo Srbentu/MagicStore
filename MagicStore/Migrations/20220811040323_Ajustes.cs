@@ -6,17 +6,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MagicStore.Migrations
 {
     /// <inheritdoc />
-    public partial class PedidoDetalhes : Migration
+    public partial class Ajustes : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "CarrinhoCompraItens");
-
-            migrationBuilder.DropTable(
-                name: "Cartas");
-
+            migrationBuilder.CreateTable(
+                name: "Categorias",
+                columns: table => new
+                {
+                    CategoriaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoriaNome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Descricao = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categorias", x => x.CategoriaId);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Pedidos",
@@ -158,79 +165,6 @@ namespace MagicStore.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categorias");
-
-            migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Cards",
-                columns: table => new
-                {
-                    CardId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    CardColor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CardFavorite = table.Column<bool>(type: "bit", nullable: false),
-                    CardImageThumbnailUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
-                    CardImageUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
-                    CardLongDescription = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    CardName = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    CardPrice = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    CardShortDescripton = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    CardSoldOut = table.Column<bool>(type: "bit", nullable: false),
-                    CardType = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cards", x => x.CardId);
-                    table.ForeignKey(
-                        name: "FK_Cards_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ShopCartItem",
-                columns: table => new
-                {
-                    ShopCartItemId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CardId = table.Column<int>(type: "int", nullable: true),
-                    Amount = table.Column<int>(type: "int", nullable: false),
-                    ShopCartId = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ShopCartItem", x => x.ShopCartItemId);
-                    table.ForeignKey(
-                        name: "FK_ShopCartItem_Cards_CardId",
-                        column: x => x.CardId,
-                        principalTable: "Cards",
-                        principalColumn: "CardId");
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cards_CategoryId",
-                table: "Cards",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ShopCartItem_CardId",
-                table: "ShopCartItem",
-                column: "CardId");
         }
     }
 }

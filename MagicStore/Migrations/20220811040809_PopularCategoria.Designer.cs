@@ -208,10 +208,7 @@ namespace MagicStore.Migrations
 
                     b.Property<int?>("CartaId")
                         .HasColumnType("int");
-
-                    b.Property<int>("LancheId")
-                        .HasColumnType("int");
-
+                    
                     b.Property<int>("PedidoId")
                         .HasColumnType("int");
 

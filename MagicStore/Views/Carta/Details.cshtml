@@ -9,7 +9,7 @@
             <p class="card-text">@Model.DescricaoDetalhada</p>
              <p class="btn btn-group align-content-lg-end" >
                 <a asp-controller="Carta" asp-action="List" 
-                   class="btn btn-outline-info">Ver todos os lanches</a>
+                   class="btn btn-outline-info">Ver todos as cartas</a>
                 <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" 
                 asp-action="AdicionarItemNoCarrinhoCompra" asp-route-cartaId="@Model.CartaId"> 
                 Adicionar @Model.Nome ao carrinho

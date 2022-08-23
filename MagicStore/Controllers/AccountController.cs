@@ -50,4 +50,30 @@ public class AccountController : Controller
         return View(loginVM);
     }
 
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Register(LoginViewModel registroVM)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = new IdentityUser {UserName = registroVM.UserName,};
+            var result = await _userManager.CreateAsync(user, registroVM.Password);
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                this.ModelState.AddModelError("Registro", "Falha ao Registrar o Usuário");
+            }
+        }
+
+        return View(registroVM);
+    }
+
 }

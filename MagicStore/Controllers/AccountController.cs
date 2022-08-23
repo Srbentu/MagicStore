@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MagicStore.Controllers;
 
-public class AcconutController : Controller
+public class AccountController : Controller
 {
     // GET
     private readonly UserManager<IdentityUser> _userManager;
     private readonly SignInManager<IdentityUser> _signInManager;
 
-    public AcconutController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+    public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
